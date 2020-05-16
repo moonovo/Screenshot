@@ -31,22 +31,7 @@ namespace Screenshot
         public void OnScreenshotAndSave()
         {
             if (!CheckPicDir()) return;
-            //double screenLeft = SystemParameters.VirtualScreenLeft;
-            //double screenTop = SystemParameters.VirtualScreenTop;
-            //double screenWidth = SystemParameters.VirtualScreenWidth;
-            //double screenHeight = SystemParameters.VirtualScreenHeight;
-
-            //using (Bitmap bmp = new Bitmap((int)screenWidth, (int)screenHeight))
-            //{
-            //    using (Graphics g = Graphics.FromImage(bmp))
-            //    {
-            //        var filename = "ScreenCapture-" + DateTime.Now.ToString("ddMMyyyy-hhmmssms") + ".png";
-            //        g.CopyFromScreen((int)screenLeft, (int)screenTop, 0, 0, bmp.Size);
-            //        bmp.Save(Path.Combine(PictureDir, filename));
-            //        EventManager.Notify("提示", $"已保存截图{filename}", Hardcodet.Wpf.TaskbarNotification.BalloonIcon.Info);
-            //    }
-            //}
-
+            
             foreach (System.Windows.Forms.Screen screen in System.Windows.Forms.Screen.AllScreens)
             {
                 if (!Properties.Settings.Default.Displays.Contains(screen.DeviceName)) continue;
@@ -55,10 +40,8 @@ namespace Screenshot
                     screen.Bounds.Height,
                     System.Drawing.Imaging.PixelFormat.Format32bppArgb))
                 {
-                    // Create a graphics object from the bitmap
                     using (var gfxScreenshot = Graphics.FromImage(screenshot))
                     {
-                        // Take the screenshot from the upper left corner to the right bottom corner
                         gfxScreenshot.CopyFromScreen(
                             screen.Bounds.X,
                             screen.Bounds.Y,
@@ -66,7 +49,7 @@ namespace Screenshot
                             0,
                             screen.Bounds.Size,
                             CopyPixelOperation.SourceCopy);
-                        // Save the screenshot
+
                         var filename = $"ScreenCapture-" +
                             $"{DateTime.Now.ToString("ddMMyyyy-hhmmssms")}-" +
                             $"{FormatDeviceName(screen.DeviceName)}.png";
