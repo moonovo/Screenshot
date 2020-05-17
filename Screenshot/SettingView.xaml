@@ -18,6 +18,7 @@
         ShowMaxRestoreButton="False"
         ShowCloseButton="False"
         WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         Title="设置" Height="400" Width="450" ShowInTaskbar="False">
     <Grid Margin="16">
         <Grid.RowDefinitions>
