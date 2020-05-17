@@ -5,11 +5,11 @@
 
 打开程序后，应用程序图标显示在右下角，右键/双击图标后，显示如下内容：
 
-![taskbar](.\docs\taskbar.png)
+![taskbar](/docs/taskbar.png)
 
 点击"设置"，弹出设置对话框
 
-![setting](.\docs\setting.png)
+![setting](/docs/setting.png)
 
 - 截图快捷键：可设置截图快捷键，默认为`CTRL+E`
 - 保存文件夹：截图后将图片保存到文件夹的路径
